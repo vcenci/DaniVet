@@ -20,7 +20,7 @@ class ProprietarioController extends Controller
         $proprietario->endereco = $request->endereco;
         $proprietario->telefone = $request->telefone;
         $proprietario->email = $request->email;
-        $proprietario->rua = $request->rua;
+        $proprietario->nomeRua = $request->nomeRua;
         $proprietario->numero = $request->numero;
         $proprietario->bairro = $request->bairro;
         $proprietario->cep = $request-> cep;
@@ -60,7 +60,7 @@ class ProprietarioController extends Controller
         $proprietario->cpf =  is_null($request->cpf) ? $proprietario->cpf : $request->cpf;
         $proprietario->telefone =  is_null($request->telefone) ? $proprietario->telefone : $request->telefone;
         $proprietario->email =  is_null($request->email) ? $proprietario->email : $request->email;
-        $proprietario->rua =  is_null($request->rua) ? $proprietario->rua : $request->rua;
+        $proprietario->nomeRua =  is_null($request->nomeRua) ? $proprietario->nomeRua : $request->nomeRua;
         $proprietario->numero =  is_null($request->numero) ? $proprietario->numero : $request->numero;
         $proprietario->bairro =  is_null($request->bairro) ? $proprietario->bairro : $request->bairro;
         $proprietario->cep =  is_null($request->cep) ? $proprietario->cep : $request->cep;

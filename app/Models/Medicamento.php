@@ -15,10 +15,10 @@ class Medicamento extends Model
     
     protected $fillable = [
         "nome",
-        "principio_ativo",
+        "principioAtivo",
         "administracao",
         "dose",
-        "lote",
+        "id_lote",
         "validade",
         "id_classificacao",
         "id_especie"

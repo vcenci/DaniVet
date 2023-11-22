@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::create('medicamentos', function (Blueprint $table) {
             $table->id();
             $table->string("nome");
-            $table->string("principio_ativo");
+            $table->string("principioAtivo");
             $table->string("administracao");
             $table->string("dose");
-            $table->string("lote");
             $table->string("validade");
+            $table->unsignedBigInteger("id_lote");
             $table->unsignedBigInteger("id_classificacao");
             $table->unsignedBigInteger("id_especie");
             $table->foreign('id_especie')->references('id')->on('especies');
+            $table->foreign('id_lote')->references('id')->on('lotes');
             $table->foreign('id_classificacao')->references('id')->on('classificacoes');
         });
     }

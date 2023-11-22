@@ -18,7 +18,7 @@ class Proprietario extends Model
         "cpf",
         "telefone",
         "email",
-        "rua",
+        "nomeRua",
         "numero",
         "bairro",
         "cep",

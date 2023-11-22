@@ -16,10 +16,10 @@ class MedicamentoController extends Controller
     public function store(Request $request) {
         $medicamento = new Medicamento;
         $medicamento->nome = $request->nome;
-        $medicamento->principio_ativo = $request->principio_ativo;
+        $medicamento->principioAtivo = $request->principioAtivo;
         $medicamento->administracao = $request->administracao;
         $medicamento->dose = $request->dose;
-        $medicamento->lote = $request->lote;
+        $medicamento->id_lote = $request->id_lote;
         $medicamento->validade = $request->validade;
         $medicamento->id_classificacao = $request->id_classificacao;
         $medicamento->id_especie = $request->id_especie;
@@ -53,10 +53,10 @@ class MedicamentoController extends Controller
             ], 404);
         }
         $medicamento->nome = is_null($request->nome) ? $medicamento->nome : $request->nome;
-        $medicamento->principio_ativo = is_null($request->principio_ativo) ? $medicamento->principio_ativo : $request->principio_ativo;
+        $medicamento->principioAtivo = is_null($request->principioAtivo) ? $medicamento->principioAtivo : $request->principioAtivo;
         $medicamento->administracao = is_null($request->administracao) ? $medicamento->administracao : $request->administracao;
         $medicamento->dose = is_null($request->dose) ? $medicamento->dose : $request->dose;
-        $medicamento->lote = is_null($request->lote) ? $medicamento->lote : $request->lote;
+        $medicamento->id_lote = is_null($request->id_lote) ? $medicamento->id_lote : $request->id_lote;
         $medicamento->validade = is_null($request->validade) ? $medicamento->validade : $request->validade;
         $medicamento->id_classificacao = is_null($request->id_classificacao) ? $medicamento->id_classificacao : $request->id_classificacao;
         $medicamento->id_especie = is_null($request->id_especie) ? $medicamento->id_especie : $request->id_especie;

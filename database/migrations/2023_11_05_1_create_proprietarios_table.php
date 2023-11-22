@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("endereco");
             $table->string("telefone");
             $table->string("email");
-            $table->string("rua");
+            $table->string("nomeRua");
             $table->integer("numero");
             $table->string("bairro");
             $table->string("cep");

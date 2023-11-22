@@ -51,7 +51,7 @@ class ProprietarioSeeder extends Seeder
             Proprietario::create([
                 "nome" => $faker->name(),
                 "cpf" => Random::generate(11, '0-9'),
-                "rua" => $faker->streetAddress(),
+                "nomeRua" => $faker->streetAddress(),
                 "telefone" => $faker->phoneNumber(),
                 "email" => $faker->email(),
                 "numero" => $faker->randomNumber(3),

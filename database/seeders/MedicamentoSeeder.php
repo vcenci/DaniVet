@@ -20,7 +20,7 @@ class MedicamentoSeeder extends Seeder
         $especieIds = DB::table('especies')->pluck('id');
         $classificacoesId = DB::table('classificacoes')->pluck('id');
 
-        $lote = $faker->randomNumber();
+        $lotes = $classificacoesId = DB::table('lotes')->pluck('id');
         $j = 0;
         for ($i = 0; $i < 10; $i++) {
             if ($j > 3) {
@@ -28,10 +28,10 @@ class MedicamentoSeeder extends Seeder
             }
             Medicamento::create([
                 "nome" => $faker->word(),
-                "principio_ativo" => $faker->word(),
+                "principioAtivo" => $faker->word(),
                 "administracao" => $faker->word(),
                 "dose" => $faker->randomNumber(),
-                "lote" => $lote,
+                "id_lotelote" => $faker->randomElement($lotes),
                 "validade" => $faker->date(),
                 "id_classificacao" => $faker->randomElement($classificacoesId),
                 "id_especie" => $faker->randomElement($especieIds)
