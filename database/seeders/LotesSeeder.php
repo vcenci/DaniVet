@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Classificacoes;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Lote;
 use Illuminate\Database\Seeder;
 
 class LotesSeeder extends Seeder
@@ -16,8 +15,8 @@ class LotesSeeder extends Seeder
         $faker = \Faker\Factory::create();
 
         foreach (range(1,5) as $index) {
-            Classificacoes::create([
-                'lote' => $faker->random_bytes(),
+            Lote::create([
+                'lote' => $faker->randomNumber(),
             ]);
         } 
     }

@@ -31,7 +31,7 @@ class MedicamentoSeeder extends Seeder
                 "principioAtivo" => $faker->word(),
                 "administracao" => $faker->word(),
                 "dose" => $faker->randomNumber(),
-                "id_lotelote" => $faker->randomElement($lotes),
+                "id_lote" => $faker->randomElement($lotes),
                 "validade" => $faker->date(),
                 "id_classificacao" => $faker->randomElement($classificacoesId),
                 "id_especie" => $faker->randomElement($especieIds)

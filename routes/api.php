@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClassificacoesController;
 use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\EspecieController;
+use App\Http\Controllers\LoteController;
 use App\Http\Controllers\MedicamentoController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\ProprietarioController;
@@ -82,3 +83,10 @@ Route::post('/racas', [RacaController::class, 'store']);
 Route::delete('/racas/{id}', [RacaController::class, 'destroy']);
 Route::put('/racas/{id}', [RacaController::class, 'update']);
 Route::get('/racas/{id}/edit', [RacaController::class, 'edit']);
+
+Route::get('/lotes', [LoteController::class, 'index']);
+Route::get('/lotes/{id}', [LoteController::class, 'show']);
+Route::post('/lotes', [LoteController::class, 'store']);
+Route::delete('/lotes/{id}', [LoteController::class, 'destroy']);
+Route::put('/lotes/{id}', [LoteController::class, 'update']);
+Route::get('/lotes/{id}/edit', [LoteController::class, 'edit']);
