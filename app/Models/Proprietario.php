@@ -9,12 +9,13 @@ class Proprietario extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $table = "proprietarios";
     
     protected $fillable = [
         "nome",
         "cpf",
-        "endereco",
         "telefone",
         "email",
         "rua",
