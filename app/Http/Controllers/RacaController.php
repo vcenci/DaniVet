@@ -16,6 +16,7 @@ class RacaController extends Controller
     public function store(Request $request) {
         $raca = new Raca;
         $raca->tipoConsulta = $request->tipoConsulta;
+        $raca->save();
         return response()->json([
             "message" => "Raca criado"
         ], 201);
@@ -31,7 +32,13 @@ class RacaController extends Controller
         ], 404);
     }
 
-    public function update($request, $id) {
+    public function edit($id)
+    {
+        $raca = Raca::query()->find($id);
+        return view('edits', ['raca'=> $raca]);
+    }
+
+    public function update(Request $request, $id) {
         $raca = Raca::find($id);
         if (empty($raca)) {
             return response()->json([

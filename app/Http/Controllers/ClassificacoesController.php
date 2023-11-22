@@ -16,6 +16,7 @@ class ClassificacoesController extends Controller
     public function store(Request $request) {
         $classificacao = new Classificacoes;
         $classificacao->classificacao = $request->classificacao;
+        $classificacao->save();
         return response()->json([
             "message" => "Classificacoes criado"
         ], 201);
@@ -31,7 +32,13 @@ class ClassificacoesController extends Controller
         ], 404);
     }
 
-    public function update($request, $id) {
+    public function edit($id)
+    {
+        $obj = Classificacoes::query()->find($id);
+        return view('edits', ['classificacao'=> $obj]);
+    }
+
+    public function update(Request $request, $id) {
         $classificacao = Classificacoes::find($id);
         if (empty($classificacao)) {
             return response()->json([

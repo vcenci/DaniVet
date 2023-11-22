@@ -13,6 +13,7 @@ class PacienteController extends Controller
         return response()->json($pacientes);
     }
 
+
     public function store(Request $request) {
         $pacientes = new Paciente;
         $pacientes->nome = $request->nome;
@@ -22,6 +23,7 @@ class PacienteController extends Controller
         $pacientes->peso = $request->peso;
         $pacientes->id_raca = $request->id_raca;
         $pacientes->id_proprietario = $request->id_proprietario;
+        $pacientes->save();
         return response()->json([
             "message" => "Paciente criado"
         ], 201);
@@ -37,7 +39,13 @@ class PacienteController extends Controller
         ], 404);
     }
 
-    public function update($request, $id) {
+    public function edit($id)
+    {
+        $paciente = Paciente::query()->find($id);
+        return view('edit', ['paciente'=> $paciente]);
+    }
+
+    public function update(Request $request, $id) {
         $pacientes = Paciente::find($id);
         if (empty($pacientes)) {
             return response()->json([

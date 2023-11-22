@@ -27,6 +27,7 @@ class ProprietarioController extends Controller
         $proprietario->cidade = $request->cidade;
         $proprietario->uf = $request->uf;
         $proprietario->tipoConsulta = $request->tipoConsulta;
+        $proprietario->save();
         return response()->json([
             "message" => "Proprietario criado"
         ], 201);
@@ -42,16 +43,21 @@ class ProprietarioController extends Controller
         ], 404);
     }
 
-    public function update($request, $id) {
+    public function edit($id)
+    {
+        $proprietario = Proprietario::query()->find($id);
+        return view('edits', ['proprietario'=> $proprietario]);
+    }
+
+    public function update(Request $request, $id) {
         $proprietario = Proprietario::find($id);
         if (empty($proprietario)) {
             return response()->json([
                 "message" => "Proprietario não encontrada"
             ], 404);
         }
-        $proprietario->nome =  is_null($request->nome) ? $proprietario->nome : $request->tipoConsulta;
+        $proprietario->nome =  is_null($request->nome) ? $proprietario->nome : $request->nome;
         $proprietario->cpf =  is_null($request->cpf) ? $proprietario->cpf : $request->cpf;
-        $proprietario->endereco =  is_null($request->endereco) ? $proprietario->endereco : $request->endereco;
         $proprietario->telefone =  is_null($request->telefone) ? $proprietario->telefone : $request->telefone;
         $proprietario->email =  is_null($request->email) ? $proprietario->email : $request->email;
         $proprietario->rua =  is_null($request->rua) ? $proprietario->rua : $request->rua;
@@ -60,7 +66,6 @@ class ProprietarioController extends Controller
         $proprietario->cep =  is_null($request->cep) ? $proprietario->cep : $request->cep;
         $proprietario->cidade =  is_null($request->cidade) ? $proprietario->cidade : $request->cidade;
         $proprietario->uf =  is_null($request->uf) ? $proprietario->uf : $request->uf;
-        $proprietario->tipoConsulta =  is_null($request->tipoConsulta) ? $proprietario->tipoConsulta : $request->tipoConsulta;
         $proprietario->save();
 
         return response()->json([

@@ -20,6 +20,8 @@ class ConsultaController extends Controller
         $consulta->id_categoria = $request->id_categoria;
         $consulta->id_paciente = $request->id_paciente;
 
+        $consulta->save();
+
         return response()->json([
             "message" => "Consulta criada"
         ], 201);
@@ -35,7 +37,14 @@ class ConsultaController extends Controller
         ], 404);
     }
 
-    public function update($request, $id) {
+    public function edit($id)
+    {
+        $consulta = Consulta::query()->find($id);
+        return view('edit',['consulta'=> $consulta]);
+    }
+
+    
+    public function update(Request $request, $id) {
         $consulta = Consulta::find($id);
         if (empty($consulta)) {
             return response()->json([

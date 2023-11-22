@@ -16,6 +16,7 @@ class EspecieController extends Controller
     public function store(Request $request) {
         $especie = new Especie;
         $especie->especie = $request->especie;
+        $especie->save();
         return response()->json([
             "message" => "Especie criado"
         ], 201);
@@ -31,7 +32,13 @@ class EspecieController extends Controller
         ], 404);
     }
 
-    public function update($request, $id) {
+    public function edit($id)
+    {
+        $obj = Especie::query()->find($id);
+        return view('edits', ['especie'=> $obj]);
+    }
+
+    public function update(Request $request, $id) {
         $especie = Especie::find($id);
         if (empty($especie)) {
             return response()->json([

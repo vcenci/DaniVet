@@ -15,7 +15,15 @@ class MedicamentoController extends Controller
 
     public function store(Request $request) {
         $medicamento = new Medicamento;
-        $medicamento->classificacao = $request->classificacao;
+        $medicamento->nome = $request->nome;
+        $medicamento->principio_ativo = $request->principio_ativo;
+        $medicamento->administracao = $request->administracao;
+        $medicamento->dose = $request->dose;
+        $medicamento->lote = $request->lote;
+        $medicamento->validade = $request->validade;
+        $medicamento->id_classificacao = $request->id_classificacao;
+        $medicamento->id_especie = $request->id_especie;
+        $medicamento->save();
         return response()->json([
             "message" => "Medicamento criado"
         ], 201);
@@ -31,7 +39,13 @@ class MedicamentoController extends Controller
         ], 404);
     }
 
-    public function update($request, $id) {
+    public function edit($id)
+    {
+        $obj = Medicamento::query()->find($id);
+        return view('edits', ['medicamento'=> $obj]);
+    }
+
+    public function update(Request $request, $id) {
         $medicamento = Medicamento::find($id);
         if (empty($medicamento)) {
             return response()->json([

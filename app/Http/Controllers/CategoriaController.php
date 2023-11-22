@@ -16,6 +16,7 @@ class CategoriaController extends Controller
     public function store(Request $request) {
         $categoriaConsulta = new CategoriaConsulta;
         $categoriaConsulta->tipoConsulta = $request->tipoConsulta;
+        $categoriaConsulta->save();
         return response()->json([
             "message" => "CategoriaConsulta criado"
         ], 201);
@@ -31,7 +32,13 @@ class CategoriaController extends Controller
         ], 404);
     }
 
-    public function update($request, $id) {
+    public function edit($id)
+    {
+        $categoriaConsulta = CategoriaConsulta::query()->find($id);
+        return view('edits', ['categoriaConsulta'=> $categoriaConsulta]);
+    }
+
+    public function update(Request $request, $id) {
         $categoriaConsulta = CategoriaConsulta::find($id);
         if (empty($categoriaConsulta)) {
             return response()->json([
