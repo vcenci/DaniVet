@@ -18,7 +18,7 @@ class Medicamento extends Model
         "principioAtivo",
         "administracao",
         "dose",
-        "id_lote",
+        "lote",
         "validade",
         "id_classificacao",
         "id_especie"

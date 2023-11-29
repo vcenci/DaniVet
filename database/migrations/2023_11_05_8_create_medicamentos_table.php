@@ -18,11 +18,10 @@ return new class extends Migration
             $table->string("administracao");
             $table->string("dose");
             $table->string("validade");
-            $table->unsignedBigInteger("id_lote");
+            $table->string("lote");
             $table->unsignedBigInteger("id_classificacao");
             $table->unsignedBigInteger("id_especie");
             $table->foreign('id_especie')->references('id')->on('especies');
-            $table->foreign('id_lote')->references('id')->on('lotes');
             $table->foreign('id_classificacao')->references('id')->on('classificacoes');
         });
     }
