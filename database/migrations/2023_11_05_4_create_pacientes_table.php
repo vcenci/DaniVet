@@ -19,8 +19,10 @@ return new class extends Migration
             $table->string("pelagem");
             $table->string("peso");
             $table->unsignedBigInteger('id_raca');
+            $table->unsignedBigInteger('id_especie');
             $table->unsignedBigInteger("id_proprietario");
             $table->foreign('id_raca')->references('id')->on('racas');
+            $table->foreign('id_especie')->references('id')->on('especies');
             $table->foreign('id_proprietario')->references('id')->on('proprietarios');
         });
     }

@@ -19,6 +19,7 @@ class Medicamento extends Model
         "administracao",
         "dose",
         "lote",
+        "status",
         "validade",
         "id_classificacao",
         "id_especie"

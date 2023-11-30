@@ -22,6 +22,7 @@ class PacienteController extends Controller
         $pacientes->pelagem = $request->pelagem;
         $pacientes->peso = $request->peso;
         $pacientes->id_raca = $request->id_raca;
+        $pacientes->id_especie = $request->id_especie;
         $pacientes->id_proprietario = $request->id_proprietario;
         $pacientes->save();
         return response()->json([
@@ -59,6 +60,7 @@ class PacienteController extends Controller
         $pacientes->pelagem =  is_null($request->pelagem) ? $pacientes->pelagem : $request->pelagem;
         $pacientes->peso =  is_null($request->peso) ? $pacientes->peso : $request->peso;
         $pacientes->id_raca =  is_null($request->id_raca) ? $pacientes->id_raca : $request->id_raca;
+        $pacientes->id_especie =  is_null($request->id_especie) ? $pacientes->id_especie : $request->id_especie;
         $pacientes->id_proprietario =  is_null($request->id_proprietario) ? $pacientes->id_proprietario : $request->id_proprietario;
         $pacientes->save();
 

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("dose");
             $table->string("validade");
             $table->string("lote");
+            $table->string("status");
             $table->unsignedBigInteger("id_classificacao");
             $table->unsignedBigInteger("id_especie");
             $table->foreign('id_especie')->references('id')->on('especies');

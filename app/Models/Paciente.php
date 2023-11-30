@@ -20,7 +20,8 @@ class Paciente extends Model
         "sexo",
         "pelagem",
         "peso",
-        "id_raca"
+        "id_raca",
+        "id_especie"
     ];
 
 }

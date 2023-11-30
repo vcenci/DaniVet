@@ -12,11 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $classes = ["Database\Seeders\CategoriaConsultaSeeder", "Database\Seeders\ClassificacoesSeeder", "Database\Seeders\LotesSeeder", "Database\Seeders\EspecieSeeder", "Database\Seeders\RacaSeeder", "Database\Seeders\MedicamentoSeeder", "Database\Seeders\PacienteSeeder", "Database\Seeders\ProprietarioSeeder", "Database\Seeders\MedicamentoSeeder"];
+        foreach ($classes as $classe) {
+            try {
+                $class = new $classe();
+                $class->run();
+            } catch(\Exception $e) {
+            }
+        }
     }
 }

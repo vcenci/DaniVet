@@ -47,12 +47,12 @@ Route::delete('/categorias/{id}', [CategoriaController::class, 'destroy']);
 Route::put('/categorias/{id}', [CategoriaController::class, 'update']);
 Route::get('/categorias/{id}/edit', [CategoriaController::class, 'edit']);
 
-Route::get('/proprietario', [ProprietarioController::class, 'index']);
-Route::get('/proprietario/{id}', [ProprietarioController::class, 'show']);
-Route::post('/proprietario', [ProprietarioController::class, 'store']);
-Route::delete('/proprietario/{id}', [ProprietarioController::class, 'destroy']);
-Route::put('/proprietario/{id}', [ProprietarioController::class, 'update']);
-Route::get('/proprietario/{id}/edit', [ProprietarioController::class, 'edit']);
+Route::get('/proprietarios', [ProprietarioController::class, 'index']);
+Route::get('/proprietarios/{id}', [ProprietarioController::class, 'show']);
+Route::post('/proprietarios', [ProprietarioController::class, 'store']);
+Route::delete('/proprietarios/{id}', [ProprietarioController::class, 'destroy']);
+Route::put('/proprietarios/{id}', [ProprietarioController::class, 'update']);
+Route::get('/proprietarios/{id}/edit', [ProprietarioController::class, 'edit']);
 
 Route::get('/medicamentos', [MedicamentoController::class, 'index']);
 Route::get('/medicamentos/{id}', [MedicamentoController::class, 'show']);

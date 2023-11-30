@@ -19,6 +19,7 @@ class MedicamentoController extends Controller
         $medicamento->principioAtivo = $request->principioAtivo;
         $medicamento->administracao = $request->administracao;
         $medicamento->dose = $request->dose;
+        $medicamento->status = $request->status;
         $medicamento->lote = $request->lote;
         $medicamento->validade = $request->validade;
         $medicamento->id_classificacao = $request->id_classificacao;
@@ -57,6 +58,7 @@ class MedicamentoController extends Controller
         $medicamento->administracao = is_null($request->administracao) ? $medicamento->administracao : $request->administracao;
         $medicamento->dose = is_null($request->dose) ? $medicamento->dose : $request->dose;
         $medicamento->lote = is_null($request->lote) ? $medicamento->lote : $request->lote;
+        $medicamento->status = is_null($request->status) ? $medicamento->status : $request->status;
         $medicamento->validade = is_null($request->validade) ? $medicamento->validade : $request->validade;
         $medicamento->id_classificacao = is_null($request->id_classificacao) ? $medicamento->id_classificacao : $request->id_classificacao;
         $medicamento->id_especie = is_null($request->id_especie) ? $medicamento->id_especie : $request->id_especie;
